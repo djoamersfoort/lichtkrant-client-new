@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title id="title">Lichtkrant Client</title>
+  <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css">
+  <link rel="stylesheet" href="../fontawesome/css/solid.min.css">
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/settings.css">
+  <link rel="stylesheet" href="../css/playing.css">
+  <script src="../js/index.js" defer type="module"></script>
+  <script src="../js/settings.js" defer></script>
+</head>
+<body>
+<div class="header">
+  <img src="../media/brand.png" alt="" class="brand" id="brand">
+  <i class="fa-solid fa-gear settingsIcon" id="openSettings"></i>
+</div>
+<div class="tiles" id="tileContent">
+  <div class="main" id="tiles">
+
+  </div>
+  <div class="footer">
+    <div class="tile place">
+      <h2 class="title">DJO Place</h2>
+      <p class="description">Place tiles on the canvas, like Reddit place for lichtkrant!</p>
+    </div>
+  </div>
+</div>
+<div class="settingsContainer" id="settings">
+  <div class="settings">
+    <h2>Settings</h2>
+    <div class="form-group">
+      <label for="ip">Lichtkrant IP</label>
+      <input type="text" id="ip">
+    </div>
+  </div>
+</div>
+<div class="playingOverlay" id="playingOverlay">
+  <h2 id="gameTitle">Snake</h2>
+  <div class="widget" id="colorWidget">
+    <h3>Profile</h3>
+    <div class="line">
+      <label for="color">Color</label>
+      <div class="color-picker">
+        <input type="color" id="color">
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

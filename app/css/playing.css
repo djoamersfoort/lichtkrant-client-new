@@ -1,0 +1,47 @@
+.playingOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10000;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    display: none;
+}
+.playingOverlay h2 {
+    margin-bottom: 0;
+}
+.playingOverlay h3 {
+    margin: 0;
+}
+.playingOverlay .widget {
+    background: #00000090;
+    border-radius: 5px;
+    min-width: 300px;
+    padding: .75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.playingOverlay .widget .line {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.color-picker {
+    width:20px;
+    height:20px;
+    overflow: hidden;
+    border-radius:100%;
+}
+input[type='color'] {
+    width:100%;
+    height:100%;
+    background: transparent;
+    transform: scale(5);
+    cursor: pointer;
+}
