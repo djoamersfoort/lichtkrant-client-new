@@ -22,11 +22,8 @@ export default class App {
         if (this.game.colors.configurable)
             this.socket.emit("color", localStorage.getItem("lastColor"));
 
-        this.socket.on("data", buffer => {
-            const data = buffer.toString();
-            if (data.startsWith("#")) {
-                color.value = data;
-            }
+        this.socket.on("color", code => {
+            color.value = code;
         });
         color.addEventListener("change", () => {
             if (!this.game.colors.configurable) return;
