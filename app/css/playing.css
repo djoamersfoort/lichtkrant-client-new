@@ -29,6 +29,7 @@
 .playingOverlay .widget .line {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 
@@ -44,4 +45,42 @@ input[type='color'] {
     background: transparent;
     transform: scale(5);
     cursor: pointer;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 100px;
+    align-items: center;
+    margin: 10px;
+}
+.grid .row {
+    display: flex;
+    gap: 5px;
+}
+.grid .row div {
+    width: 30px;
+    height: 30px;
+}
+.grid .row div.key {
+    background: #00000080;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.large {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    background: #00000080;
+    border-radius: 3px;
+    height: 30px;
+    margin: 10px;
+}
+
+.description {
+    margin-right: 10px;
 }
