@@ -47,13 +47,12 @@ export default class App {
 
     keyDown(key) {
         if (typeof this.keys[key.key] === "undefined") return;
-        if (this.keys[key.key]) return;
 
         this.keys[key.key] = true;
         this.socket.emit("key_down", key.key)
     }
     keyUp(key) {
-        if (!this.keys[key.key]) return;
+        if (typeof this.keys[key.key] === "undefined") return;
 
         this.keys[key.key] = false;
         this.socket.emit("key_up", key.key)
