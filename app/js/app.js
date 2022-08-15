@@ -1,13 +1,13 @@
-const net = require("net");
 const title = document.getElementById("title");
 const colorWidget = document.getElementById("colorWidget");
 const color = document.getElementById("color");
 const gameTitle = document.getElementById("gameTitle");
 
 export default class App {
-    constructor(game, zoomed) {
+    constructor(socket, game, zoomed) {
         this.game = game;
         this.zoomed = zoomed;
+        this.socket = socket;
         title.innerText = `Playing ${this.game.name}`;
         gameTitle.innerText = this.game.name;
 
@@ -18,12 +18,9 @@ export default class App {
 
         document.body.addEventListener("keydown", e => {this.keyDown(e)});
         document.body.addEventListener("keyup", e => {this.keyUp(e)});
-        this.socket = new net.Socket();
-        this.socket.connect(this.game.port, localStorage.getItem("ip") || "100.64.0.65", () => {
-            this.send();
-        });
+        this.socket.emit("join", game.id);
         if (this.game.colors.configurable)
-            this.socket.write(localStorage.getItem("lastColor"));
+            this.socket.emit("color", localStorage.getItem("lastColor"));
 
         this.socket.on("data", buffer => {
             const data = buffer.toString();
@@ -34,7 +31,7 @@ export default class App {
         color.addEventListener("change", () => {
             if (!this.game.colors.configurable) return;
 
-            this.socket.write(color.value);
+            this.socket.emit("color", color.value);
             localStorage.setItem("lastColor", color.value);
         });
     }
@@ -51,31 +48,21 @@ export default class App {
         color.value = localStorage.getItem("lastColor");
     }
 
-    createString() {
-        let base = Object.values(this.keys).map(value => value ? 1 : 0).join("");
-        base += new Array(7 - base.length).join(" ");
-
-        return base;
-    }
-
-    send() {
-        this.socket.write(this.createString());
-    }
-
     keyDown(key) {
         if (typeof this.keys[key.key] === "undefined") return;
+        if (this.keys[key.key]) return;
 
         this.keys[key.key] = true;
-        this.send();
+        this.socket.emit("key_down", key.key)
     }
     keyUp(key) {
         if (!this.keys[key.key]) return;
 
         this.keys[key.key] = false;
-        this.send();
+        this.socket.emit("key_up", key.key)
     }
 
     disconnect() {
-        this.socket.destroy();
+        this.socket.emit("leave");
     }
 }

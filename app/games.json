@@ -1,12 +1,12 @@
 [
   {
     "name": "Snake",
+    "id": "snake",
     "description": "Online snake game for lichtkrant",
     "color": {
       "from": "#327C32",
       "to": "#457045"
     },
-    "port": 1029,
     "keys": ["w", "a", "s", "d"],
     "explanation": [
       {
@@ -26,12 +26,12 @@
   },
   {
     "name": "Pong",
+    "id": "pong2",
     "description": "Online multiplayer pong game for lichtkrant",
     "color": {
       "from": "#2C3838",
       "to": "#2D3447"
     },
-    "port": 9999,
     "keys": ["w", "s"],
     "explanation": [
       {
@@ -50,12 +50,12 @@
   },
   {
     "name": "Tetris",
+    "id": "tetris",
     "description": "Online multiplayer tetris game for lichtkrant",
     "color": {
       "from": "#1B428E",
       "to": "#152B62"
     },
-    "port": 7777,
     "keys": ["w", "a", "s", "d", "e", " "],
     "explanation": [
       {
@@ -87,12 +87,12 @@
   },
   {
     "name": "Splash",
+    "id": "splash",
     "description": "N&M Games' Splash for the lichtkrant",
     "color": {
       "from": "#1ACAE2",
       "to": "#156671"
     },
-    "port": 42069,
     "keys": ["a", "d", "w"],
     "explanation": [
       {
@@ -111,13 +111,13 @@
   },
   {
     "name": "Pac-Man",
+    "id": "pacman",
     "kwabbel": true,
     "description": "Pac-Man for lichtkrant",
     "color": {
       "from": "#E0C122",
       "to": "#9B8618"
     },
-    "port": 3564,
     "keys": ["w", "a", "s", "d"],
     "explanation": [
       {

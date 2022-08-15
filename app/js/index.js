@@ -5,6 +5,7 @@ const windowTitle = document.getElementById("title");
 const tiles = document.getElementById("tiles");
 const playingOverlay = document.getElementById("playingOverlay");
 const list = [];
+const socket = io("http://localhost:5000");
 const zoom = ({e, title, description}) => {
     const rect = e.getBoundingClientRect();
     // move to center
@@ -46,7 +47,7 @@ for (const key in games) {
         zoom({e, title, description});
 
         setTimeout(() => {
-            currentApp = new App(game, { e, title, description });
+            currentApp = new App(socket, game, { e, title, description });
             playingOverlay.style.display = "flex";
             pending = false;
         }, 300)
