@@ -4,10 +4,10 @@ const color = document.getElementById("color");
 const gameTitle = document.getElementById("gameTitle");
 
 export default class App {
-    constructor(socket, game, zoomed) {
+    constructor(game, zoomed) {
+        this.socket = io(`http://${localStorage.getItem("ip") || "100.64.0.65"}:5000`);
         this.game = game;
         this.zoomed = zoomed;
-        this.socket = socket;
         title.innerText = `Playing ${this.game.name}`;
         gameTitle.innerText = this.game.name;
 
@@ -59,6 +59,6 @@ export default class App {
     }
 
     disconnect() {
-        this.socket.emit("leave");
+        this.socket.disconnect();
     }
 }
