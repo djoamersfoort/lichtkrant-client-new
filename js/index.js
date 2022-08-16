@@ -1,7 +1,9 @@
 import App from "./app.js";
-const games = require("../games.json");
+const res = await fetch("../games.json");
+const games = await res.json();
 
 const windowTitle = document.getElementById("title");
+const place = document.getElementById("place");
 const tiles = document.getElementById("tiles");
 const playingOverlay = document.getElementById("playingOverlay");
 const list = [];
@@ -78,4 +80,8 @@ document.body.addEventListener("keyup", e => {
             currentApp = null;
         }
     }
+})
+
+place.addEventListener("click", () => {
+    document.location.assign("https://place.sverben.nl");
 })
