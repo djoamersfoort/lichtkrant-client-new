@@ -1,5 +1,5 @@
 import App from "./app.js";
-const res = await fetch("../games.json");
+const res = await fetch("games.json");
 const games = await res.json();
 
 const windowTitle = document.getElementById("title");
